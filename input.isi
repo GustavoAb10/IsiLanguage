@@ -1,0 +1,28 @@
+programa
+
+numero a, b;
+texto t1;
+
+a = 2.3;
+
+b = 5;
+
+
+escreva(a);
+escreva(b);
+
+se ( a > b ) {
+
+	escreva (a);
+
+} senao {
+	escreva (b);
+}
+
+enquanto(a<b){
+	leia(a);
+	escreva(b);
+}
+
+
+fimprog;
