@@ -42,5 +42,11 @@ public class CommandAtribuicao extends AbstractCommand {
 		return id + " = " + expr + ";";
 		
 	}
+	
+	@Override
+	public String generatePythonCode() {
+		// TODO Auto-generated method stub
+		return "		" + id + " = " + expr + "\n";
+	}
 
 }

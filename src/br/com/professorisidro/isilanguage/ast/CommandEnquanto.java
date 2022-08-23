@@ -31,6 +31,19 @@ public class CommandEnquanto extends AbstractCommand {
 	}
 	
 	@Override
+	public String generatePythonCode() {
+		
+		StringBuilder str = new StringBuilder();		
+		str.append("		while (" + condition + ") :\n");
+		for (AbstractCommand cmd: listaCmdWhile) {
+			str.append("	"+cmd.generatePythonCode());
+			
+		}	
+				
+		return str.toString();
+	}
+	
+	@Override
 	public String toString() {
 		return "CommandEnquanto [condition=" + condition + ", listaTrue=" + listaCmdWhile + "]";
 	}

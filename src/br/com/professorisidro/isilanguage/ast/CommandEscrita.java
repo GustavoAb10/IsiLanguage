@@ -15,10 +15,15 @@ public class CommandEscrita extends AbstractCommand{
 	}
 
 	@Override
+	public String generatePythonCode() {
+		// TODO Auto-generated method stub
+		return "		print("+id+")\n";
+	}
+
+	@Override
 	public String toString() {
 		return "CommandEscrita [id=" + id + "]";
-	}
-	
+	}	
 	
 
 }

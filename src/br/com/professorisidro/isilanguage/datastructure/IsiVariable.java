@@ -57,4 +57,17 @@ public class IsiVariable extends IsiSymbol {
 		return str + " " + super.name + ";";
 		
 	}
+	
+	public String generatePythonCode() {
+		String str;
+		if(type == NUMBER) {
+			str = "0.0";
+		}else if (type == NUMBERINT) {
+			str = "0";
+		}
+		else {
+			str = "None";
+		}
+		return "		"+super.name+" = "+str+"\n";
+	}
 }

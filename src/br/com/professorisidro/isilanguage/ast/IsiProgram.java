@@ -15,7 +15,7 @@ public class IsiProgram {
 	
 	
 	public void generateTarget() {
-		
+		// java code
 		StringBuilder str = new StringBuilder();
 		str.append("import java.util.Scanner;\n");
 		str.append("public class MainClass { \n");
@@ -33,10 +33,31 @@ public class IsiProgram {
 		str.append("	}");
 		str.append("}");
 		
+		// python code
+		StringBuilder py = new StringBuilder();
+		py.append("class MainClass :\n");
+		py.append("	@staticmethod\n");
+		py.append("	def main(args) :\n");
+		py.append("		_key = 'Python-inputs'\n");
+		for (IsiSymbol symbol: varTable.getAll()) {
+			py.append(symbol.generatePythonCode());
+		}
+		for (AbstractCommand command: comandos) {
+			py.append(command.generatePythonCode());
+		}		
+		py.append("\n"+"if __name__=='__main__':\n");
+		py.append("	MainClass.main([])");		
+		
 		try {
+			// java file
 			FileWriter fr = new FileWriter(new File("MainClass.java"));
 			fr.write(str.toString());
 			fr.close();
+			
+			// py file
+			FileWriter frpy = new FileWriter(new File("MainClass.py"));
+			frpy.write(py.toString());
+			frpy.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -24,6 +24,18 @@ public class CommandLeitura extends AbstractCommand{
 		}
 		return id +"= _key." + typesReturn;	
 	}
+	
+	@Override
+	public String generatePythonCode() {
+		if (var.getType()==IsiVariable.NUMBER) {
+			typesReturn =  "float(input())\n";
+		} else if (var.getType()==IsiVariable.NUMBERINT) {
+			typesReturn =  "int(input())\n";
+		} else {
+			typesReturn = "input()\n";
+		}
+		return "		"+ id + " = " + typesReturn;
+	}
 
 	@Override
 	public String toString() {

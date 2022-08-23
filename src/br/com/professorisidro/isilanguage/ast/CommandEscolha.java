@@ -40,6 +40,26 @@ public class CommandEscolha extends AbstractCommand {
 		str.append("}\n");
 		return str.toString();
 	}
+	
+	@Override
+	public String generatePythonCode() {
+		// TODO Auto-generated method stub
+		StringBuilder str = new StringBuilder();
+		str.append("		if ("+condition+" == "+cases+") :\n");		
+		for (AbstractCommand cmd: listaSwitch) {
+			str.append("	");
+			str.append(cmd.generatePythonCode());
+		}
+
+
+		str.append("		elif("+condition+" == "+cases3+") : \n");
+		for (AbstractCommand cmd: listaSwitch2) {
+			str.append("	");
+			str.append(cmd.generatePythonCode());
+		}		
+		return str.toString();
+	}
+	
 	@Override
 	public String toString() {
 		return "CommandEscolha [condition=" + condition + ", cases=" + cases + ", cases3=" + cases3 + ", listaSwitch=" + listaSwitch+ ", listaSwitch2=" + listaSwitch2
