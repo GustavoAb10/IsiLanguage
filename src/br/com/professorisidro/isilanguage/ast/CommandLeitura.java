@@ -6,6 +6,7 @@ public class CommandLeitura extends AbstractCommand{
 	
 	private String id;
 	private IsiVariable var;
+	private String typesReturn;
 	
 	public CommandLeitura (String id, IsiVariable var) {
 		this.id = id;
@@ -14,8 +15,14 @@ public class CommandLeitura extends AbstractCommand{
 	
 	@Override
 	public String generateJavaCode() {
-		
-		return id + "= _key." + (var.getType() == IsiVariable.NUMBER? "nextDouble();" : "nextLine();");
+		if (var.getType()==IsiVariable.NUMBER) {
+			typesReturn =  "nextDouble();";
+		} else if (var.getType()==IsiVariable.NUMBERINT) {
+			typesReturn =  "nextInt();";
+		} else {
+			typesReturn = "nextLine();";
+		}
+		return id +"= _key." + typesReturn;	
 	}
 
 	@Override

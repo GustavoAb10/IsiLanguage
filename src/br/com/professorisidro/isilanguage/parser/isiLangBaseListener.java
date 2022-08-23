@@ -12,6 +12,7 @@ package br.com.professorisidro.isilanguage.parser;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
 	import br.com.professorisidro.isilanguage.ast.CommandEnquanto;
+	import br.com.professorisidro.isilanguage.ast.CommandEscolha;
 	import java.util.ArrayList;
 	import java.util.Stack;
 	
@@ -99,6 +100,18 @@ public class isiLangBaseListener implements isiLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCmd(isiLangParser.CmdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCmdswitch(isiLangParser.CmdswitchContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCmdswitch(isiLangParser.CmdswitchContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

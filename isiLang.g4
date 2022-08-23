@@ -12,6 +12,7 @@ grammar isiLang;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
 	import br.com.professorisidro.isilanguage.ast.CommandEnquanto;
+	import br.com.professorisidro.isilanguage.ast.CommandEscolha;
 	import java.util.ArrayList;
 	import java.util.Stack;
 	
@@ -40,6 +41,11 @@ grammar isiLang;
 	private String _exprWhile;
 	private ArrayList<AbstractCommand> listaCmdWhile;
 	
+	private String _switch;
+	private String _switch2;
+	private String _switch3;
+	private ArrayList<AbstractCommand> listaSwitch1;
+	private ArrayList<AbstractCommand> listaSwitch2;
 	
 	
 	
@@ -130,6 +136,7 @@ declaravar	: tipo ID {
 
 tipo	: 'numero'	{_tipo = IsiVariable.NUMBER;}
 		| 'texto'	{_tipo = IsiVariable.TEXT;}
+		| 'inteiro'  { _tipo = IsiVariable.NUMBERINT;  }
 		;
 
 		
@@ -144,14 +151,42 @@ cmd		: cmdleitura
 		 | cmdescrita	
 		 | cmdattrib
 		 | cmdselecao
-		 | cmdenquanto	
+		 | cmdenquanto
+		 | cmdswitch
 		;
 
 
-
-
-
 		
+cmdswitch	:	'escolha'	AP
+							(ID | NUMBER | NUMBERINT) { verificaID(_input.LT(-1).getText());
+									_switch = _input.LT(-1).getText();
+								}
+							FP
+							ACH
+							'caso'	(ID | NUMBER | NUMBERINT) {_switch2 = _input.LT(-1).getText(); }	PO
+									{ curThread = new ArrayList<AbstractCommand>(); 
+									stack.push(curThread);
+									}
+									(cmd)+
+							{
+								listaSwitch1 = stack.pop();	
+							} 
+								
+							'caso'	(ID | NUMBER | NUMBERINT) {_switch3 = _input.LT(-1).getText(); }	PO
+									{ curThread = new ArrayList<AbstractCommand>(); 
+									stack.push(curThread);
+									}
+									(cmd)+
+							{
+								listaSwitch2 = stack.pop();	
+							}
+
+							FCH
+							{
+								CommandEscolha cmd = new CommandEscolha(_switch, _switch2, _switch3, listaSwitch1, listaSwitch2);
+								stack.peek().add(cmd);
+							}	
+			;
 		
 		
 cmdenquanto	: 'enquanto' 	AP
@@ -309,5 +344,11 @@ NUMBER  : [0-9]+ ('.'[0-9]+)?
 		;
 		
 WS : (' ' | '\n' | '\t' | '\r') -> skip;
+
+NUMBERINT	: [0-9]+
+		;
+
+PO	: ':'
+	;
 
 			

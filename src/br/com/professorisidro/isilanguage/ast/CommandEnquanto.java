@@ -18,12 +18,14 @@ public class CommandEnquanto extends AbstractCommand {
 	public String generateJavaCode() {
 		
 		StringBuilder str = new StringBuilder();
+		str.append("\n");
 		str.append("while (" + condition + ") {");
 		for (AbstractCommand cmd: listaCmdWhile) {
 			str.append(cmd.generateJavaCode());
 			
 		}
 		str.append("}");
+		str.append("\n");
 				
 		return str.toString();
 	}

@@ -4,6 +4,7 @@ public class IsiVariable extends IsiSymbol {
 	
 	public static final int NUMBER = 0;
 	public static final int TEXT = 1;
+	public static final int NUMBERINT  =2;
 	public int utilizada = 0; 
 	
 	private int type;
@@ -46,6 +47,8 @@ public class IsiVariable extends IsiSymbol {
 		
 		if (type == NUMBER) {
 			str = "double";
+		} else if (type == NUMBERINT) {
+			str = "int ";
 		}
 		else {
 			str = "String";
