@@ -23,6 +23,7 @@
 - Itens adicionais
     - Nova instrução para Switch/Case (escolha/caso)
     - Inclusão de novos operadores (exponenciação, raiz quadrada, logaritmos)
+    - Mais tipos de dados (criação e implementação de variáveis do tipo int - NUMBERINT)
 
 ### Link para vídeo no Youtube
 - [Projeto de Compiladores](https://www.youtube.com/)
