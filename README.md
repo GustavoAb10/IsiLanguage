@@ -1,6 +1,6 @@
 # IsiLanguage
 
-## Projeto da Disciplina de Compiladores - Universidade Federal do ABC (UFABC)
+## Projeto da Disciplina de Compiladores - Universidade Federal do ABC
 
 ### Integrantes do Grupo
 - Adriane Silva Sanches             |   RA: 11201920641
