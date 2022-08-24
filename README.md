@@ -22,7 +22,7 @@
 
 - Itens adicionais
     - Nova instrução para Switch/Case (escolha/caso)
-    - Inclusão de novos operadores (exponenciação, raiz quadrada, logaritmos)
+    - Inclusão de novos operadores (exponenciação, raiz quadrada)
     - Mais tipos de dados (criação e implementação de variáveis do tipo int - NUMBERINT)
     - Geração de código para mais de uma linguagem diferente (geração de código em Python)
 
