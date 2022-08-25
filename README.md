@@ -26,4 +26,4 @@
     - Geração de código para mais de uma linguagem diferente (geração de código em Python)
 
 ### Link para vídeo no Youtube
-- [Projeto de Compiladores](https://www.youtube.com/)
+- [Projeto de Compiladores](https://youtu.be/F22HX_aF_zk)
